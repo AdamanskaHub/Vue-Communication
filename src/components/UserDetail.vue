@@ -9,7 +9,11 @@
 
 <script>
     export default {
-        props: ['myName'],
+        // props: ['myName'],
+        props: {
+            myName: [String, Array]
+            // je définis les types
+        },
         // on indique ici que l'on veut accéder à name dans le parent User.vue - est-ce un parent?
         methods: {
             switchName() {
