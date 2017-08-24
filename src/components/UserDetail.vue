@@ -11,6 +11,9 @@
 </template>
 
 <script>
+
+    import { eventBus } from '../main';
+
     export default {
         // props: ['myName'],
         props: {
@@ -29,6 +32,11 @@
                 // juste ça ne communique pas avec le parent, donc on doit emit pour màj partout
                 this.$emit('nameWasReset',  this.myName);
             }
+        },
+        created() {
+            eventBus.$on('ageWasEdited', (paramAge) => {
+                this.userAge = paramAge;
+            });
         }
     }
 </script>
