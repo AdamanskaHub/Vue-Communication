@@ -2,6 +2,7 @@
     <div class="component">
         <h3>You may edit the User here</h3>
         <p>Edit me!</p>
+        <p>User age : {{ userAge }}</p>
         <button @click='editAge'>Edit the age</button>
     </div>
 </template>
@@ -11,8 +12,9 @@
         props: ['userAge'],
         methods: {
             editAge() {
-                this.age = 30
+                this.userAge = 30
                 // déclaré dans user.v
+                this.$emit('ageWasEdited', this.userAge);
             }
         }
     }

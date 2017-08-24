@@ -7,11 +7,13 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :myName="name" @nameWasReset="name = $event" :resetFn = "resetName2"></app-user-detail>
-                <!-- je bind name d'ici à celui de userDetail -->
+                <app-user-detail :myName="name" @nameWasReset="name = $event" :resetFn = "resetName2" :userAge='age'></app-user-detail>
+                <!-- user age est une prop dans UEdit.v
+                je bind name d'ici à celui de userDetail, je le passe dans userdetails ensuite comme prop -->
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit :userAge="age"></app-user-edit>
+                <app-user-edit :userAge="age"
+                @ageWasEdited="age = $event"></app-user-edit>
             </div>
         </div>
     </div>
